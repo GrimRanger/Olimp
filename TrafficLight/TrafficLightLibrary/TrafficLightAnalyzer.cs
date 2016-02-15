@@ -26,7 +26,10 @@ namespace TrafficLight.Domain.Core
             while (digits != null && digits.Item1 != null && digits.Item2 != null)
             {
 
-
+                if (possibleAnswers.Count == 1)
+                {
+                    _trafficLightService.GiveAnswer(possibleAnswers[0]);
+                }
                 digits = _trafficLightService.GetNext();
             }
         }

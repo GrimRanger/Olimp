@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLightLibrary", "Traf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{16E36A69-F82A-4490-9326-149CA008253B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0C899A05-20F6-4CF2-82C6-F778706A74E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{DED67BC8-B324-442F-99EA-DC9592007249}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +27,17 @@ Global
 		{CBD50D70-BBF4-4122-83F3-49FCEFC2F7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBD50D70-BBF4-4122-83F3-49FCEFC2F7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBD50D70-BBF4-4122-83F3-49FCEFC2F7EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DED67BC8-B324-442F-99EA-DC9592007249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DED67BC8-B324-442F-99EA-DC9592007249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DED67BC8-B324-442F-99EA-DC9592007249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DED67BC8-B324-442F-99EA-DC9592007249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CBD50D70-BBF4-4122-83F3-49FCEFC2F7EC} = {16E36A69-F82A-4490-9326-149CA008253B}
+		{D319F21C-22DE-4609-AC79-F646A5E988A5} = {0C899A05-20F6-4CF2-82C6-F778706A74E1}
+		{DED67BC8-B324-442F-99EA-DC9592007249} = {0C899A05-20F6-4CF2-82C6-F778706A74E1}
 	EndGlobalSection
 EndGlobal
