@@ -1,10 +1,11 @@
 ﻿using System;
+using TrafficLight.Domain.Core.Core;
 
 namespace TrafficLight.Domain.Core.Interfaces
 {
     public interface ITrafficLightService
     {
         Tuple<Digit, Digit> GetNext();
-        void GiveAnsert(int answer);
+        void GiveAnswer(int answer);
     }
 }

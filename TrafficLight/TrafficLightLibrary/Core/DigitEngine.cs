@@ -1,16 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TrafficLight.Domain.Core
+namespace TrafficLight.Domain.Core.Core
 {
     public class DigitEngine
     {
         public bool CheckDigit(Digit digit, int value)
         {
-           if(value >= Masks.Count)
-               throw new ArgumentOutOfRangeException();
+            if (value >= Masks.Count)
+                throw new ArgumentOutOfRangeException();
 
-           return (Masks[value] ^ digit.Mask) == 0;
+            return (Masks[value] ^ digit.Mask) == 0;
+        }
+
+        public List<int> GetWorkingLines(Digit digit)
+        {
+            var result = new List<int>();
+            for (var i = 0; i < Lines.Masks.Count; ++i)
+            {
+                if ((Lines.Masks[i] ^ digit.Mask) > 0)
+                    result.Add(i);
+            }
+
+            return result;
+        }
+
+        public List<int> GetNotWorkingLines(Digit digit)
+        {
+            var result = new List<int>();
+            for (var i = 0; i < Lines.Masks.Count; ++i)
+            {
+                if ((Lines.Masks[i] ^ digit.Mask) > 0)
+                    result.Add(i);
+            }
+
+            return result;
         }
 
         public List<int> GetPossibleDigits(Digit digit)
