@@ -36,8 +36,10 @@
   <ItemGroup>
     <Compile Include="Core\Digit.cs" />
     <Compile Include="Core\DigitEngine.cs" />
-    <Compile Include="DigitReaders\BinaryMaskReader.cs" />
-    <Compile Include="DigitReaders\IntegerMaskReader.cs" />
+    <Compile Include="DigitGenerator\DigitsGenerator.cs" />
+    <Compile Include="DigitReaders\DigitStorageReader.cs" />
+    <Compile Include="DigitReaders\MaskReader\BinaryMaskReader.cs" />
+    <Compile Include="DigitReaders\MaskReader\IntegerMaskReader.cs" />
     <Compile Include="DigitReaders\StreamDigitReader.cs" />
     <Compile Include="Interfaces\IDigitEngine.cs" />
     <Compile Include="Interfaces\IDigitReader.cs" />
