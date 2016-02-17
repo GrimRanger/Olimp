@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using TrafficLight.Domain.Core.Interfaces;
 
 namespace TrafficLight.Domain.Core.Core
 {
-    public class DigitEngine
+    public class DigitEngine : IDigitEngine
     {
         public bool CheckDigit(Digit digit, int value)
         {
