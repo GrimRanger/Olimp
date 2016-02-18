@@ -37,6 +37,7 @@
     <Compile Include="Core\Digit.cs" />
     <Compile Include="Core\DigitEngine.cs" />
     <Compile Include="DigitGenerator\DigitsGenerator.cs" />
+    <Compile Include="DigitGenerator\NoiseGenerator.cs" />
     <Compile Include="DigitReaders\DigitStorageReader.cs" />
     <Compile Include="DigitReaders\MaskReader\BinaryMaskReader.cs" />
     <Compile Include="DigitReaders\MaskReader\IntegerMaskReader.cs" />

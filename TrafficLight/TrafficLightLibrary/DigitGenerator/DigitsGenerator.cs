@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TrafficLight.Domain.Core.Core;
 
 namespace TrafficLight.Domain.Core.DigitGenerator
@@ -20,13 +21,18 @@ namespace TrafficLight.Domain.Core.DigitGenerator
         private List<Digit> GenerateNumber(int number)
         {
             var result = new List<Digit>();
+            if (number == 0)
+            {
+                result.Add(GenerateDigit(0));
+                return result;
+            }
             while (number > 0)
             {
                 var digit = number%10;
                 number = number/10;
                 result.Add(GenerateDigit(digit));
             }
-
+            result.Reverse();
             return result;
         }
 

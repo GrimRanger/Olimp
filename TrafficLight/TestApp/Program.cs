@@ -5,36 +5,49 @@ using TrafficLight.Domain.Core.Core;
 using TrafficLight.Domain.Core.DigitGenerator;
 using TrafficLight.Domain.Core.DigitReaders;
 using TrafficLight.Domain.Core.DigitReaders.MaskReader;
+using TrafficLight.Domain.Core.Interfaces;
 
 namespace TestApp
 {
     class Program
     {
-        static void DigitAnalyzerTest()
+        static IDigitReader GenerateDigits(int number)
         {
-            StreamReader sr = new StreamReader(@"test.txt");
-            var digitEngine = new DigitEngine();
+
+            var digitGenerator = new DigitsGenerator();
+            var digits = digitGenerator.GenerateDigits(number);
+            var digitReader = new DigitStorageReader(digits, number);
+
+            return digitReader;
+        }
+
+        static IDigitReader ReadDigits(string fileName)
+        {
+            StreamReader sr = new StreamReader(fileName);
+
             var binaryMaskReader = new BinaryMaskReader();
-            var integerMaskReader = new IntegerMaskReader();
+            //var integerMaskReader = new IntegerMaskReader();
             var digitReader = new StreamDigitReader(sr, binaryMaskReader);
+
+            return digitReader;
+        }
+
+        static void AnalyzeDigit(IDigitReader digitReader)
+        {
             var trafficLightService = new TrafficLightService(digitReader);
+
+            var digitEngine = new DigitEngine();
             var digitAnalyzer = new TrafficLightAnalyzer(trafficLightService, digitEngine);
             var result = digitAnalyzer.Analyze();
             Console.WriteLine("Right answer is {0}", digitReader.GetRightAnsert());
             Console.WriteLine("Actual answer is {0} on step {1} after getting number {2}", result, digitReader.GetStep(), digitReader.GetLastNumber());
         }
 
-        private static void DigitsGeneratorTest()
-        {
-            var digitGenerator = new DigitsGenerator();
-            var result = digitGenerator.GenerateDigits(10);
-        }
-
         static void Main(string[] args)
         {
-           // DigitAnalyzerTest();
-            DigitsGeneratorTest();
-
+            //var digitReader = ReadDigits("test.txt");
+            var digitReader = GenerateDigits(25);
+            AnalyzeDigit(digitReader);
         }
     }
 }
