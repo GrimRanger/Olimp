@@ -5,6 +5,7 @@ using TrafficLight.Domain.Core.Core;
 using TrafficLight.Domain.Core.DigitGenerator;
 using TrafficLight.Domain.Core.DigitReaders;
 using TrafficLight.Domain.Core.DigitReaders.MaskReader;
+using TrafficLight.Domain.Core.Filters;
 using TrafficLight.Domain.Core.Interfaces;
 
 namespace TestApp
@@ -46,8 +47,13 @@ namespace TestApp
         static void Main(string[] args)
         {
             //var digitReader = ReadDigits("test.txt");
-            var digitReader = GenerateDigits(25);
-            AnalyzeDigit(digitReader);
+            //var digitReader = GenerateDigits(25);
+           // AnalyzeDigit(digitReader);
+
+            var maskFilter = new MaskDigitFilter();
+
+            var result = maskFilter.CheckDigit(127, 93, 93);
+            Console.Write(result);
         }
     }
 }

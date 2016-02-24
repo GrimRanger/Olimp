@@ -42,13 +42,16 @@
     <Compile Include="DigitReaders\MaskReader\BinaryMaskReader.cs" />
     <Compile Include="DigitReaders\MaskReader\IntegerMaskReader.cs" />
     <Compile Include="DigitReaders\StreamDigitReader.cs" />
+    <Compile Include="Filters\MaskDigitFilter.cs" />
     <Compile Include="Interfaces\IDigitEngine.cs" />
     <Compile Include="Interfaces\IDigitReader.cs" />
     <Compile Include="Interfaces\ILine.cs" />
     <Compile Include="Core\Lines.cs" />
     <Compile Include="Interfaces\IMaskReader.cs" />
+    <Compile Include="Interfaces\INumberFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\ITrafficLightService.cs" />
+    <Compile Include="Filters\SequenceDigitFilter.cs" />
     <Compile Include="TrafficLightService.cs" />
     <Compile Include="TrafficLightAnalyzer.cs" />
   </ItemGroup>

@@ -9,6 +9,7 @@ namespace TrafficLight.Domain.Core
     {
         private readonly ITrafficLightService _trafficLightService;
         private readonly IDigitEngine _digitEngine;
+        private readonly List<INumberFilter> _numberFilters; 
 
         public TrafficLightAnalyzer(ITrafficLightService trafficLightService, IDigitEngine digitEngine)
         {
@@ -23,38 +24,44 @@ namespace TrafficLight.Domain.Core
 
         public int Analyze()
         {
-            var possibleAnswers = new List<int>();
+            var answers = new List<int>();
 
             var digits = _trafficLightService.GetNext();
-            var currentNumber = 0;
+          
+            var digitWorkingLightMasks = new List<int>(digits.Count);
+            digitWorkingLightMasks = GetDigitsMask(digitWorkingLightMasks, digits);
+          
+            var count = 0;
             while (digits != null && digits.Count != 0)
             {
                 var currentPossibleNumbers = GetPossibleNumbers(digits);
-                if (possibleAnswers.Count == 0)
-                    possibleAnswers.AddRange(currentPossibleNumbers);
+                if (answers.Count == 0)
+                    answers.AddRange(currentPossibleNumbers);
                 else
-                {
-                    var newPossibleAnswers = new List<int>();
-                    for (var i = 0; i < possibleAnswers.Count; ++i)
-                    {
-                        var index = currentPossibleNumbers.IndexOf(possibleAnswers[i] - currentNumber);
-                        if (index != -1)
-                            newPossibleAnswers.Add(possibleAnswers[i]);
-                    }
-                    possibleAnswers = newPossibleAnswers;
-                }
+                    answers = GetNewPossibleAnswers(answers, count, currentPossibleNumbers);
 
-                if (possibleAnswers.Count == 1)
+                if (answers.Count == 1)
                 {
-                    _trafficLightService.GiveAnswer(possibleAnswers[0]);
-                    return possibleAnswers[0];
+                    _trafficLightService.GiveAnswer(answers[0]);
+                    return answers[0];
                 }
                 digits = _trafficLightService.GetNext();
-                currentNumber++;
+                digitWorkingLightMasks = GetDigitsMask(digitWorkingLightMasks, digits);
+                count++;
             }
 
-            _trafficLightService.GiveAnswer(currentNumber);
-            return currentNumber;
+            _trafficLightService.GiveAnswer(count);
+            return count;
+        }
+
+        private List<int> GetDigitsMask(List<int> digitWorkingLightMasks, List<Digit> digits)
+        {
+            for (var i = 0; i < digits.Count; ++i)
+            {
+                digitWorkingLightMasks[i] = (digits[i].Mask | digitWorkingLightMasks[i]);
+            }
+
+            return digitWorkingLightMasks;
         }
 
         private List<int> GetPossibleNumbers(List<Digit> digits)
@@ -78,5 +85,23 @@ namespace TrafficLight.Domain.Core
 
             return result;
         }
+
+        private List<int> GetNewPossibleAnswers(List<int> oldAnswers, int currentNumber, List<int> currentNumbers)
+        {
+            var newAnswers = new List<int>();
+            for (var i = 0; i < oldAnswers.Count; ++i)
+            {
+                var index = currentNumbers.IndexOf(oldAnswers[i] - currentNumber);
+                if (index != -1)
+                    newAnswers.Add(oldAnswers[i]);
+            }
+
+            return newAnswers;
+        }
+
+        //private List<int> GetNewPossibleAnswersByMask(List<int> oldAnswers, int currentNumber, List<int> currentNumbers)
+        //{
+          
+        //}
     }
 }
