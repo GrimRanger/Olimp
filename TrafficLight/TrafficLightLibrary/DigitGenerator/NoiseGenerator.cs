@@ -11,6 +11,7 @@ namespace TrafficLight.Domain.Core.DigitGenerator
 
         public NoiseGenerator(List<string> noises)
         {
+            _noises = new List<int>();
             foreach (var noise in noises)
             {
                 _noises.Add(Convert.ToInt32(noise, 2));
@@ -24,6 +25,7 @@ namespace TrafficLight.Domain.Core.DigitGenerator
 
         public NoiseGenerator(int digitCount)
         {
+            _noises = new List<int>();
             _random = new Random();
             for (var i = 0; i < digitCount; ++i)
             {
@@ -50,7 +52,7 @@ namespace TrafficLight.Domain.Core.DigitGenerator
             return numbers;
         }
 
-        public int GenerateNoise()
+        private int GenerateNoise()
         {
             int maxValue = Convert.ToInt32("1111111", 2) + 1;
             return  _random.Next(0, maxValue);
