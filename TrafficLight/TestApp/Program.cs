@@ -38,17 +38,16 @@ namespace TestApp
         {
             var trafficLightService = new TrafficLightService(digitReader);
             var filters = new List<INumberFilter> {new SequenceDigitFilter(), new MaskDigitFilter()};
-            var digitEngine = new DigitEngine();
-            var digitAnalyzer = new TrafficLightAnalyzer(trafficLightService, digitEngine, filters);
+            var digitAnalyzer = new TrafficLightAnalyzer(trafficLightService, filters);
             var result = digitAnalyzer.Analyze();
-            Console.WriteLine("Right answer is {0}", digitReader.GetRightAnsert());
+            Console.WriteLine("Right answer is {0}", digitReader.GetRightAnswer());
             Console.WriteLine("Actual answer is {0} on step {1} after getting number {2}", result, digitReader.GetStep(), digitReader.GetLastNumber());
         }
 
         static void Main(string[] args)
         {
             //var digitReader = ReadDigits("test.txt");
-            var digitReader = GenerateDigits(25);
+            var digitReader = GenerateDigits(55);
             AnalyzeDigit(digitReader);
 
             //var maskFilter = new MaskDigitFilter();

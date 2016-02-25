@@ -8,7 +8,6 @@ namespace TrafficLight.Domain.Core
     {
         private readonly IDigitReader _digitReader;
 
-
         public TrafficLightService(IDigitReader digitReader)
         {
             _digitReader = digitReader;
@@ -21,7 +20,7 @@ namespace TrafficLight.Domain.Core
 
         public bool GiveAnswer(int answer)
         {
-            return _digitReader.GetRightAnsert() == answer;
+            return _digitReader.GetRightAnswer() == answer;
         }
     }
 }

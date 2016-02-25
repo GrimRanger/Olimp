@@ -8,10 +8,10 @@ namespace TrafficLight.Domain.Core
     public class TrafficLightAnalyzer
     {
         private readonly ITrafficLightService _trafficLightService;
-        private readonly IDigitEngine _digitEngine;
+        private readonly DigitEngine _digitEngine;
         private readonly List<INumberFilter> _numberFilters;
 
-        public TrafficLightAnalyzer(ITrafficLightService trafficLightService, IDigitEngine digitEngine, List<INumberFilter> numberFilters)
+        public TrafficLightAnalyzer(ITrafficLightService trafficLightService, List<INumberFilter> numberFilters)
         {
             if (trafficLightService == null)
             {
@@ -19,7 +19,7 @@ namespace TrafficLight.Domain.Core
             }
 
             _trafficLightService = trafficLightService;
-            _digitEngine = digitEngine;
+            _digitEngine = new DigitEngine();
             _numberFilters = numberFilters;
         }
 
@@ -62,6 +62,7 @@ namespace TrafficLight.Domain.Core
                 filter.Update(numbers);
             }
         }
+
         private List<int> FilterAnwers(List<int> answers, int count, List<int> currentPossibleNumbers)
         {
             foreach (var filter in _numberFilters)
@@ -71,8 +72,6 @@ namespace TrafficLight.Domain.Core
 
             return answers;
         }
-
-       
 
         private List<int> GetPossibleNumbers(List<Digit> digits)
         {

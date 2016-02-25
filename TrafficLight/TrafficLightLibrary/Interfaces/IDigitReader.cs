@@ -6,7 +6,7 @@ namespace TrafficLight.Domain.Core.Interfaces
     public interface IDigitReader
     {
         List<Digit> ReadDigits();
-        int GetRightAnsert();
+        int GetRightAnswer();
         int GetStep();
         int GetLastNumber();
     }

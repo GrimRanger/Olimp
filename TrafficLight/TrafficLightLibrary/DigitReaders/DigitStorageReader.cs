@@ -30,7 +30,7 @@ namespace TrafficLight.Domain.Core.DigitReaders
             return null;
         }
 
-        public int GetRightAnsert()
+        public int GetRightAnswer()
         {
             return _rightAnswer;
         }
