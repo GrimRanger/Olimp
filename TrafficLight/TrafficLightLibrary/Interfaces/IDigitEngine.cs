@@ -7,7 +7,5 @@ namespace TrafficLight.Domain.Core.Interfaces
     {
         bool CheckDigit(Digit digit, int value);
         List<int> GetPossibleDigits(Digit digit);
-        List<int> GetNotWorkingLines(Digit digit);
-        List<int> GetWorkingLines(Digit digit);
     }
 }

@@ -30,6 +30,7 @@ namespace TrafficLight.Domain.Core.DigitGenerator
             int maxValue = Convert.ToInt32("1111111", 2) + 1;
             int noiseMask = _random.Next(0, maxValue);
             digit = new Digit(digit.Mask & noiseMask);
+           
             return digit;
         }
     }

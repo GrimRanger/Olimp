@@ -50,6 +50,32 @@ namespace TrafficLight.Domain.Core.Core
             return result;
         }
 
+        public List<Digit> ToDigits(int number)
+        {
+            var result = new List<Digit>();
+            if (number == 0)
+            {
+                result.Add(GenerateDigit(0));
+                return result;
+            }
+            while (number > 0)
+            {
+                var digit = number % 10;
+                number = number / 10;
+                result.Add(GenerateDigit(digit));
+            }
+            result.Reverse();
+
+            return result;
+        }
+
+        private Digit GenerateDigit(int digit)
+        {
+            var mask = Masks[digit];
+
+            return new Digit(mask);
+        }
+
         private static readonly List<int> Masks = new List<int>
 			{
                 119, //1110111 - 0

@@ -5,7 +5,7 @@ namespace TrafficLight.Domain.Core.Interfaces
 {
     public interface INumberFilter
     {
-        List<int> Filter(List<int> oldAnswers, int currentNumber, List<int> currentNumbers);
-        void UpdateFilter(List<Digit> digits);
+        List<int> Filter(List<int> answers, int count, List<int> numbers);
+        void Update(List<List<Digit>> previousDigits);
     }
 }

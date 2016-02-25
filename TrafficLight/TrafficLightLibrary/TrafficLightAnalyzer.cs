@@ -9,9 +9,9 @@ namespace TrafficLight.Domain.Core
     {
         private readonly ITrafficLightService _trafficLightService;
         private readonly IDigitEngine _digitEngine;
-        private readonly List<INumberFilter> _numberFilters; 
+        private readonly List<INumberFilter> _numberFilters;
 
-        public TrafficLightAnalyzer(ITrafficLightService trafficLightService, IDigitEngine digitEngine)
+        public TrafficLightAnalyzer(ITrafficLightService trafficLightService, IDigitEngine digitEngine, List<INumberFilter> numberFilters)
         {
             if (trafficLightService == null)
             {
@@ -20,17 +20,17 @@ namespace TrafficLight.Domain.Core
 
             _trafficLightService = trafficLightService;
             _digitEngine = digitEngine;
+            _numberFilters = numberFilters;
         }
 
         public int Analyze()
         {
             var answers = new List<int>();
-
+            var numbers = new List<List<Digit>>();
             var digits = _trafficLightService.GetNext();
-          
-            var digitWorkingLightMasks = new List<int>(digits.Count);
-            digitWorkingLightMasks = GetDigitsMask(digitWorkingLightMasks, digits);
-          
+            numbers.Add(digits);
+            UpdateFilters(numbers);
+
             var count = 0;
             while (digits != null && digits.Count != 0)
             {
@@ -38,7 +38,7 @@ namespace TrafficLight.Domain.Core
                 if (answers.Count == 0)
                     answers.AddRange(currentPossibleNumbers);
                 else
-                    answers = GetNewPossibleAnswers(answers, count, currentPossibleNumbers);
+                    answers = FilterAnwers(answers, count, currentPossibleNumbers);
 
                 if (answers.Count == 1)
                 {
@@ -46,7 +46,8 @@ namespace TrafficLight.Domain.Core
                     return answers[0];
                 }
                 digits = _trafficLightService.GetNext();
-                digitWorkingLightMasks = GetDigitsMask(digitWorkingLightMasks, digits);
+                numbers.Add(digits);
+                UpdateFilters(numbers);
                 count++;
             }
 
@@ -54,15 +55,24 @@ namespace TrafficLight.Domain.Core
             return count;
         }
 
-        private List<int> GetDigitsMask(List<int> digitWorkingLightMasks, List<Digit> digits)
+        private void UpdateFilters(List<List<Digit>> numbers)
         {
-            for (var i = 0; i < digits.Count; ++i)
+            foreach (var filter in _numberFilters)
             {
-                digitWorkingLightMasks[i] = (digits[i].Mask | digitWorkingLightMasks[i]);
+                filter.Update(numbers);
+            }
+        }
+        private List<int> FilterAnwers(List<int> answers, int count, List<int> currentPossibleNumbers)
+        {
+            foreach (var filter in _numberFilters)
+            {
+                answers = filter.Filter(answers, count, currentPossibleNumbers);
             }
 
-            return digitWorkingLightMasks;
+            return answers;
         }
+
+       
 
         private List<int> GetPossibleNumbers(List<Digit> digits)
         {
@@ -85,23 +95,5 @@ namespace TrafficLight.Domain.Core
 
             return result;
         }
-
-        private List<int> GetNewPossibleAnswers(List<int> oldAnswers, int currentNumber, List<int> currentNumbers)
-        {
-            var newAnswers = new List<int>();
-            for (var i = 0; i < oldAnswers.Count; ++i)
-            {
-                var index = currentNumbers.IndexOf(oldAnswers[i] - currentNumber);
-                if (index != -1)
-                    newAnswers.Add(oldAnswers[i]);
-            }
-
-            return newAnswers;
-        }
-
-        //private List<int> GetNewPossibleAnswersByMask(List<int> oldAnswers, int currentNumber, List<int> currentNumbers)
-        //{
-          
-        //}
     }
 }

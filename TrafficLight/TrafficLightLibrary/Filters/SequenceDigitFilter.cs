@@ -6,12 +6,12 @@ namespace TrafficLight.Domain.Core.Filters
 {
     public class SequenceDigitFilter : INumberFilter
     {
-        public List<int> Filter(List<int> oldAnswers, int currentNumber, List<int> currentNumbers)
+        public List<int> Filter(List<int> oldAnswers, int count, List<int> numbers)
         {
             var newAnswers = new List<int>();
             for (var i = 0; i < oldAnswers.Count; ++i)
             {
-                var index = currentNumbers.IndexOf(oldAnswers[i] - currentNumber);
+                var index = numbers.IndexOf(oldAnswers[i] - count);
                 if (index != -1)
                     newAnswers.Add(oldAnswers[i]);
             }
@@ -19,9 +19,8 @@ namespace TrafficLight.Domain.Core.Filters
             return newAnswers;
         }
 
-        public void UpdateFilter(List<Digit> digits)
+        public void Update(List<List<Digit>> previousDigits)
         {
-            return;
         }
     }
 }

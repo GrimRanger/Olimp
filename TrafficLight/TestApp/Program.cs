@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using TrafficLight.Domain.Core;
 using TrafficLight.Domain.Core.Core;
@@ -36,9 +37,9 @@ namespace TestApp
         static void AnalyzeDigit(IDigitReader digitReader)
         {
             var trafficLightService = new TrafficLightService(digitReader);
-
+            var filters = new List<INumberFilter> {new SequenceDigitFilter(), new MaskDigitFilter()};
             var digitEngine = new DigitEngine();
-            var digitAnalyzer = new TrafficLightAnalyzer(trafficLightService, digitEngine);
+            var digitAnalyzer = new TrafficLightAnalyzer(trafficLightService, digitEngine, filters);
             var result = digitAnalyzer.Analyze();
             Console.WriteLine("Right answer is {0}", digitReader.GetRightAnsert());
             Console.WriteLine("Actual answer is {0} on step {1} after getting number {2}", result, digitReader.GetStep(), digitReader.GetLastNumber());
@@ -47,13 +48,13 @@ namespace TestApp
         static void Main(string[] args)
         {
             //var digitReader = ReadDigits("test.txt");
-            //var digitReader = GenerateDigits(25);
-           // AnalyzeDigit(digitReader);
+            var digitReader = GenerateDigits(25);
+            AnalyzeDigit(digitReader);
 
-            var maskFilter = new MaskDigitFilter();
+            //var maskFilter = new MaskDigitFilter();
 
-            var result = maskFilter.CheckDigit(127, 93, 93);
-            Console.Write(result);
+           // var result = maskFilter.CheckDigit(127, 93, 93);
+            //Console.Write(result);
         }
     }
 }
