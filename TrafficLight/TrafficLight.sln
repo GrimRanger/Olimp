@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLight.Tests", "TrafficLight\TrafficLight.Tests.csproj", "{D319F21C-22DE-4609-AC79-F646A5E988A5}"
 EndProject
@@ -37,7 +37,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D319F21C-22DE-4609-AC79-F646A5E988A5} = {0C899A05-20F6-4CF2-82C6-F778706A74E1}
-		{DED67BC8-B324-442F-99EA-DC9592007249} = {0C899A05-20F6-4CF2-82C6-F778706A74E1}
 		{CBD50D70-BBF4-4122-83F3-49FCEFC2F7EC} = {16E36A69-F82A-4490-9326-149CA008253B}
+		{DED67BC8-B324-442F-99EA-DC9592007249} = {0C899A05-20F6-4CF2-82C6-F778706A74E1}
 	EndGlobalSection
 EndGlobal

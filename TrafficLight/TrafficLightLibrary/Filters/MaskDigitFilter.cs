@@ -39,15 +39,22 @@ namespace TrafficLight.Domain.Core.Filters
         {
             _previousDigits = previousDigits;
             var numberCount = previousDigits.Count;
+            
 
             if (_digitWorkingLightMasks == null)
             {
                 InitList(previousDigits[0]);
             }
 
+            var workingLightIndex = 0;
+            if (previousDigits[numberCount - 1].Count != _digitWorkingLightMasks.Count)
+            {
+                workingLightIndex = _digitWorkingLightMasks.Count - previousDigits[numberCount - 1].Count;
+            }
+
             for (var i = 0; i < previousDigits[numberCount - 1].Count; ++i)
             {
-                _digitWorkingLightMasks[i] = (previousDigits[numberCount - 1][i].Mask | _digitWorkingLightMasks[i]);
+                _digitWorkingLightMasks[workingLightIndex + i] = (previousDigits[numberCount - 1][i].Mask | _digitWorkingLightMasks[workingLightIndex + i]);
             }
         }
 

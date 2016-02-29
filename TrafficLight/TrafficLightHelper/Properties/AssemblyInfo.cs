@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TrafficLight.Domain.Interfaces")]
+[assembly: AssemblyTitle("TrafficLightHelper")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Confirmit")]
-[assembly: AssemblyProduct("TrafficLight.Domain.Interfaces")]
-[assembly: AssemblyCopyright("Copyright © Confirmit 2016")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("TrafficLightHelper")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("84273402-8204-43cb-a109-702d2ca53d98")]
+[assembly: Guid("52024c35-0fe1-4005-b1fb-1bbd119e8487")]
 
 // Version information for an assembly consists of the following four values:
 //

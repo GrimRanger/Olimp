@@ -1,23 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using TrafficLight.Domain.Core;
 using TrafficLight.Domain.Core.Core;
 using TrafficLight.Domain.Core.DigitGenerator;
 using TrafficLight.Domain.Core.DigitReaders;
 using TrafficLight.Domain.Core.DigitReaders.MaskReader;
 using TrafficLight.Domain.Core.Filters;
+using TrafficLight.Domain.Core.Helpers;
 using TrafficLight.Domain.Core.Interfaces;
 
 namespace TestApp
 {
     class Program
     {
-        static IDigitReader GenerateDigits(int number)
+        static IDigitReader GenerateDigits(int number, string[] noises)
         {
-
             var digitGenerator = new DigitsGenerator();
             var digits = digitGenerator.GenerateDigits(number);
+            
+            if (noises != null)
+            {
+                var noiseGenerator = new NoiseGenerator(noises.ToList());
+                digits = noiseGenerator.AddNoise(digits);
+            }
             var digitReader = new DigitStorageReader(digits, number);
 
             return digitReader;
@@ -37,9 +44,10 @@ namespace TestApp
         static void AnalyzeDigit(IDigitReader digitReader)
         {
             var trafficLightService = new TrafficLightService(digitReader);
-            var filters = new List<INumberFilter> {new SequenceDigitFilter(), new MaskDigitFilter()};
+            var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter() };
             var digitAnalyzer = new TrafficLightAnalyzer(trafficLightService, filters);
             var result = digitAnalyzer.Analyze();
+
             Console.WriteLine("Right answer is {0}", digitReader.GetRightAnswer());
             Console.WriteLine("Actual answer is {0} on step {1} after getting number {2}", result, digitReader.GetStep(), digitReader.GetLastNumber());
         }
@@ -47,13 +55,8 @@ namespace TestApp
         static void Main(string[] args)
         {
             //var digitReader = ReadDigits("test.txt");
-            var digitReader = GenerateDigits(55);
+            var digitReader = GenerateDigits(55, new[] { "1010111", "1001001" });
             AnalyzeDigit(digitReader);
-
-            //var maskFilter = new MaskDigitFilter();
-
-           // var result = maskFilter.CheckDigit(127, 93, 93);
-            //Console.Write(result);
         }
     }
 }
