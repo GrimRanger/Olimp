@@ -10,7 +10,7 @@ namespace TrafficLight.Domain.Core.Core
             if (value >= Masks.Count)
                 throw new ArgumentOutOfRangeException();
 
-            return (Masks[value] ^ digit.Mask) == 0;
+            return (Masks[value] | digit.Mask) == Masks[value];
         }
 
         public List<int> GetWorkingLines(int mask)

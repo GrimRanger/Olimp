@@ -28,17 +28,18 @@ namespace TrafficLight.Domain.Core
             var answers = new List<int>();
             var numbers = new List<List<Digit>>();
             var digits = _trafficLightService.GetNext();
-            numbers.Add(digits);
-            UpdateFilters(numbers);
-
             var count = 0;
+
             while (digits != null && digits.Count != 0)
             {
+                numbers.Add(digits);
+                UpdateFilters(numbers);
+                count++;
                 var currentPossibleNumbers = GetPossibleNumbers(digits);
                 if (answers.Count == 0)
                     answers.AddRange(currentPossibleNumbers);
                 else
-                    answers = FilterAnwers(answers, count, currentPossibleNumbers);
+                    answers = FilterAnwers(answers, count - 1, currentPossibleNumbers);
 
                 if (answers.Count == 1)
                 {
@@ -46,13 +47,10 @@ namespace TrafficLight.Domain.Core
                     return answers[0];
                 }
                 digits = _trafficLightService.GetNext();
-                numbers.Add(digits);
-                UpdateFilters(numbers);
-                count++;
             }
 
-            _trafficLightService.GiveAnswer(count);
-            return count;
+            _trafficLightService.GiveAnswer(count - 1);
+            return count - 1;
         }
 
         private void UpdateFilters(List<List<Digit>> numbers)

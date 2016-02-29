@@ -53,20 +53,30 @@ namespace TrafficLight.Domain.Core.Filters
 
         private bool CheckNumber(int number, List<Digit> actualDigits)
         {
-            var index = 0;
+            var workingLightIndex = 0;
+            var actualDigitIndex = 0;
             var expectedDigits = _digitEngine.ToDigits(number);
             if (expectedDigits.Count != actualDigits.Count)
             {
-                throw new ArgumentOutOfRangeException();
-            }
-            if (expectedDigits.Count != _digitWorkingLightMasks.Count)
-            {
-                index = _digitWorkingLightMasks.Count - expectedDigits.Count;
+                while (_digitEngine.CheckDigit(actualDigits[0], 0) && actualDigitIndex + expectedDigits.Count < actualDigits.Count)
+                {
+                    actualDigitIndex++;
+                }
             }
 
-            for (var i = 0; i < actualDigits.Count; ++i)
+            if (actualDigitIndex + expectedDigits.Count != actualDigits.Count)
             {
-                if (!CheckDigit(expectedDigits[i].Mask, actualDigits[i].Mask, _digitWorkingLightMasks[index + i]))
+                throw new ArgumentException();
+            }
+
+            if (expectedDigits.Count != _digitWorkingLightMasks.Count)
+            {
+                workingLightIndex = _digitWorkingLightMasks.Count - expectedDigits.Count;
+            }
+
+            for (var i = 0; i < expectedDigits.Count; ++i)
+            {
+                if (!CheckDigit(expectedDigits[i].Mask, actualDigits[actualDigitIndex + i].Mask, _digitWorkingLightMasks[workingLightIndex + i]))
                     return false;
             }
 
