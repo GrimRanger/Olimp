@@ -60,9 +60,12 @@ namespace TrafficLight
 
         [TestCase(905, new[] { "0000000", "1001001", "1001001" }, TestName = "Test 28")]
         [TestCase(800, new[] { "1001001", "1001001", "1001001" }, TestName = "Test 29")]
-        [TestCase(666, new[] { "1010111", "1001001", "1001001" }, TestName = "Test 30")]
-        [TestCase(100, new[] { "0010000", "1001001", "1001001" }, TestName = "Test 31")]
-        [TestCase(300, new[] { "0111100", "1001001", "1001001" }, TestName = "Test 32")]
+        [TestCase(800, new[] { "0000000", "1111111", "0000000" }, TestName = "Test 30")]
+        [TestCase(800, new[] { "1111111", "0000000", "1111111" }, TestName = "Test 31")]
+        [TestCase(800, new[] { "1001001", "1001001", "1001001" }, TestName = "Test 32")]
+        [TestCase(666, new[] { "1010111", "1001001", "1001001" }, TestName = "Test 33")]
+        [TestCase(100, new[] { "0010000", "1001001", "1001001" }, TestName = "Test 34")]
+        [TestCase(300, new[] { "0111100", "1001001", "1001001" }, TestName = "Test 35")]
         public void TrafficLightAnalyzer_Analyze_CapacityAndCountAreEqual_ResultShouldBeTrue(int number, string[] noises)
         {
             var digitReader = GenerateDigits(number, noises);
