@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using TrafficLight.Domain.Core.Core;
-using TrafficLight.Domain.Core.Helpers;
 using TrafficLight.Domain.Core.Interfaces;
 
 namespace TrafficLight.Domain.Core

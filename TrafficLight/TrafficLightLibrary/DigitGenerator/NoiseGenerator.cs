@@ -54,7 +54,7 @@ namespace TrafficLight.Domain.Core.DigitGenerator
 
         private int GenerateNoise()
         {
-            int maxValue = Convert.ToInt32("1111111", 2) + 1;
+            var maxValue = Convert.ToInt32("1111111", 2) + 1;
             return  _random.Next(0, maxValue);
             
         }

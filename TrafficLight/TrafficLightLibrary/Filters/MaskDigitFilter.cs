@@ -39,11 +39,13 @@ namespace TrafficLight.Domain.Core.Filters
         {
             _previousDigits = previousDigits;
             var numberCount = previousDigits.Count;
-            
+
 
             if (_digitWorkingLightMasks == null)
             {
-                InitList(previousDigits[0]);
+                _digitWorkingLightMasks = new List<int>();
+                for (var i = 0; i < _previousDigits[0].Count; ++i)
+                    _digitWorkingLightMasks.Add(0);
             }
 
             var workingLightIndex = 0;
@@ -97,13 +99,6 @@ namespace TrafficLight.Domain.Core.Filters
             int conflict = workAndTurnOff & burned;
 
             return conflict == 0;
-        }
-
-        private void InitList(List<Digit> digits)
-        {
-            _digitWorkingLightMasks = new List<int>();
-            for (var i = 0; i < digits.Count; ++i)
-                _digitWorkingLightMasks.Add(0);
         }
     }
 }

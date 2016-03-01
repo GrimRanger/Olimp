@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TrafficLight.Domain.Core.Core
 {
-    public class DigitEngine 
+    public class DigitEngine
     {
         public bool CheckDigit(Digit digit, int value)
         {
@@ -11,30 +11,6 @@ namespace TrafficLight.Domain.Core.Core
                 throw new ArgumentOutOfRangeException();
 
             return (Masks[value] | digit.Mask) == Masks[value];
-        }
-
-        public List<int> GetWorkingLines(int mask)
-        {
-            var result = new List<int>();
-            for (var i = 0; i < LinesMasks.Count; ++i)
-            {
-                if ((LinesMasks[i] ^ mask) > 0)
-                    result.Add(i);
-            }
-
-            return result;
-        }
-
-        public List<int> GetNotWorkingLines(int mask)
-        {
-            var result = new List<int>();
-            for (var i = 0; i < LinesMasks.Count; ++i)
-            {
-                if ((LinesMasks[i] ^ mask) > 0)
-                    result.Add(i);
-            }
-
-            return result;
         }
 
         public List<int> GetPossibleDigits(Digit digit)
@@ -88,15 +64,5 @@ namespace TrafficLight.Domain.Core.Core
                 127, //1111111 - 8
                 123  //1111011 - 9
 			};
-
-        private static readonly List<int> LinesMasks = new List<int>
-            {
-                32, //TopLeft
-                16, //TopRight
-                8, //Middle
-                4, //BottomLeft
-                2, //BottomRight
-                1 //Bottom
-            };
     }
 }
