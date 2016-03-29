@@ -32,13 +32,6 @@ namespace TrafficLight.Domain.Core
 
             while (digits != null && digits.Count != 0)
             {
-                //var painter = new TrafficLightPainter();
-                //var result = painter.PrintNumber(digits);
-                //Console.WriteLine(result);
-                //Console.ForegroundColor = ConsoleColor.DarkRed;
-                //Console.WriteLine("_____________________________________________________________________________");
-                //Console.ForegroundColor = ConsoleColor.White;
-
                 numbers.Add(digits);
                 UpdateFilters(numbers);
                 count++;
