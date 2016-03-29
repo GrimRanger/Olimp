@@ -7,18 +7,18 @@ namespace TrafficLight.Domain.Core
 {
     public class TrafficLightAnalyzer
     {
-        private readonly ITrafficLightService _trafficLightService;
+        private readonly Trafficlight _trafficlight;
         private readonly DigitEngine _digitEngine;
         private readonly List<INumberFilter> _numberFilters;
 
-        public TrafficLightAnalyzer(ITrafficLightService trafficLightService, List<INumberFilter> numberFilters)
+        public TrafficLightAnalyzer(Trafficlight trafficlight, List<INumberFilter> numberFilters)
         {
-            if (trafficLightService == null)
+            if (trafficlight == null)
             {
-                throw new ArgumentNullException("trafficLightService");
+                throw new ArgumentNullException("trafficlight");
             }
 
-            _trafficLightService = trafficLightService;
+            _trafficlight = trafficlight;
             _digitEngine = new DigitEngine();
             _numberFilters = numberFilters;
         }
@@ -27,11 +27,13 @@ namespace TrafficLight.Domain.Core
         {
             var answers = new List<int>();
             var numbers = new List<List<Digit>>();
-            var digits = _trafficLightService.GetNext();
+           
             var count = 0;
 
-            while (digits != null && digits.Count != 0)
+            while (_trafficlight.GetNext())
             {
+                var digits = _trafficlight.CurrentDigits;
+                
                 numbers.Add(digits);
                 UpdateFilters(numbers);
                 count++;
@@ -43,14 +45,13 @@ namespace TrafficLight.Domain.Core
 
                 if (answers.Count == 1)
                 {
-                    _trafficLightService.GiveAnswer(answers[0]);
-                    return answers[0];
+                    _trafficlight.Answer(answers[0] - count + 1);
+                    return answers[0] - count + 1;
                 }
-                digits = _trafficLightService.GetNext();
             }
 
-            _trafficLightService.GiveAnswer(count - 1);
-            return count - 1;
+            _trafficlight.Answer(0);
+            return 0;
         }
 
         private void UpdateFilters(List<List<Digit>> numbers)

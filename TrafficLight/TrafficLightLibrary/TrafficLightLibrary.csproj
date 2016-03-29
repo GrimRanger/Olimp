@@ -43,14 +43,15 @@
     <Compile Include="DigitReaders\MaskReader\IntegerMaskReader.cs" />
     <Compile Include="DigitReaders\StreamDigitReader.cs" />
     <Compile Include="Filters\MaskDigitFilter.cs" />
+    <Compile Include="Helpers\DigitHelper.cs" />
     <Compile Include="Interfaces\IDigitReader.cs" />
     <Compile Include="Interfaces\IMaskReader.cs" />
     <Compile Include="Interfaces\INumberFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interfaces\ITrafficLightService.cs" />
+    <Compile Include="Interfaces\ITrafficlight.cs" />
     <Compile Include="Filters\SequenceDigitFilter.cs" />
     <Compile Include="Helpers\TrafficLightPainter.cs" />
-    <Compile Include="TrafficLightService.cs" />
+    <Compile Include="Trafficlight.cs" />
     <Compile Include="TrafficLightAnalyzer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

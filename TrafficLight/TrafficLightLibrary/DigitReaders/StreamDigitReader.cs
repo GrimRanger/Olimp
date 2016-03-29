@@ -8,7 +8,7 @@ namespace TrafficLight.Domain.Core.DigitReaders
 {
     public class StreamDigitReader : IDigitReader
     {
-        private readonly int _rightAnswer;
+        private readonly int _firstNumber;
         private int _step;
         private readonly StreamReader _streamReader;
         private readonly IMaskReader _maskReader;
@@ -20,7 +20,7 @@ namespace TrafficLight.Domain.Core.DigitReaders
             var rowAnswer = _streamReader.ReadLine();
             if (rowAnswer == null)
                 throw new ArgumentException();
-            _rightAnswer = int.Parse(rowAnswer);
+            _firstNumber = int.Parse(rowAnswer);
             _step = 0;
         }
 
@@ -44,7 +44,7 @@ namespace TrafficLight.Domain.Core.DigitReaders
 
         public int GetRightAnswer()
         {
-            return _rightAnswer;
+            return _firstNumber - _step + 1;
         }
 
         public int GetStep()
@@ -52,9 +52,20 @@ namespace TrafficLight.Domain.Core.DigitReaders
             return _step;
         }
 
-        public int GetLastNumber()
+        public int GetFirstNumber()
         {
-            return _rightAnswer - _step + 1;
+            return _firstNumber;
+        }
+
+        public bool IsFinalState()
+        {
+            if (_firstNumber - _step == 0)
+            {
+                _step++;
+                return true;
+            }
+
+            return false;
         }
     }
 }

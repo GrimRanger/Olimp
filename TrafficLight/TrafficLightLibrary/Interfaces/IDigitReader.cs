@@ -8,6 +8,7 @@ namespace TrafficLight.Domain.Core.Interfaces
         List<Digit> ReadDigits();
         int GetRightAnswer();
         int GetStep();
-        int GetLastNumber();
+        int GetFirstNumber();
+        bool IsFinalState();
     }
 }

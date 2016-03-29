@@ -8,13 +8,13 @@ namespace TrafficLight.Domain.Core.DigitReaders
     public class DigitStorageReader : IDigitReader
     {
         private readonly List<List<Digit>> _digits;
-        private readonly int _rightAnswer;
+        private readonly int _firstNumber;
         private int _step;
 
-        public DigitStorageReader(List<List<Digit>> digits, int rightAnswer)
+        public DigitStorageReader(List<List<Digit>> digits, int firstNumber)
         {
             _digits = digits;
-            _rightAnswer = rightAnswer;
+            _firstNumber = firstNumber;
             _step = 0;
         }
 
@@ -32,7 +32,7 @@ namespace TrafficLight.Domain.Core.DigitReaders
 
         public int GetRightAnswer()
         {
-            return _rightAnswer;
+            return _firstNumber - _step + 1;
         }
 
         public int GetStep()
@@ -40,9 +40,20 @@ namespace TrafficLight.Domain.Core.DigitReaders
             return _step;
         }
 
-        public int GetLastNumber()
+        public int GetFirstNumber()
         {
-            return _rightAnswer - _step + 1;
+            return _firstNumber;
+        }
+
+        public bool IsFinalState()
+        {
+            if (_firstNumber - _step == 0)
+            {
+                _step++;
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -43,13 +43,14 @@ namespace TestApp
 
         static void AnalyzeDigit(IDigitReader digitReader)
         {
-            var trafficLightService = new TrafficLightService(digitReader);
+            var trafficLightService = new Trafficlight(digitReader);
             var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter() };
             var digitAnalyzer = new TrafficLightAnalyzer(trafficLightService, filters);
             var result = digitAnalyzer.Analyze();
 
             Console.WriteLine("Right answer is {0}", digitReader.GetRightAnswer());
-            Console.WriteLine("Actual answer is {0} on step {1} after getting number {2}", result, digitReader.GetStep(), digitReader.GetLastNumber());
+            Console.WriteLine("Actual answer is {0} on step {1}", result, digitReader.GetStep());
+            Console.WriteLine("First number is {0}", digitReader.GetFirstNumber());
         }
 
         static void Main(string[] args)

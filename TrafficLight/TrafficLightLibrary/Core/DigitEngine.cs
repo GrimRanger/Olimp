@@ -44,6 +44,17 @@ namespace TrafficLight.Domain.Core.Core
             return result;
         }
 
+        public List<Digit> ToDigits(int number, int digitCount)
+        {
+            var result = ToDigits(number);
+            while (result.Count < digitCount)
+            {
+                result.Insert(0, GenerateDigit(0));
+            }
+
+            return result;
+        }
+
         private Digit GenerateDigit(int digit)
         {
             var mask = Masks[digit];

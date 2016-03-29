@@ -12,12 +12,12 @@ namespace TrafficLight.Domain.Core.DigitGenerator
             _digitEngine = new DigitEngine();
         }
 
-        public List<List<Digit>> GenerateDigits(int number)
+        public List<List<Digit>> GenerateDigits(int number, int digitCount = 0)
         {
             var result = new List<List<Digit>>();
             for (var i = number; i >= 0; --i)
             {
-                var digits = _digitEngine.ToDigits(i);
+                var digits = _digitEngine.ToDigits(i, digitCount);
                 result.Add(digits);
             }
 
