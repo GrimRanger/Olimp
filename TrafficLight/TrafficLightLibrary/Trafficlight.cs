@@ -6,7 +6,7 @@ using TrafficLight.Domain.Core.Interfaces;
 
 namespace TrafficLight.Domain.Core
 {
-    public class Trafficlight : ITrafficlight
+    public class TrafficLight : ITrafficLight
     {
         private readonly IDigitReader _digitReader;
         private readonly DigitHelper _digitHelper;
@@ -16,7 +16,7 @@ namespace TrafficLight.Domain.Core
         public Tuple<bool[], bool[]> Current { get; private set; }
         public List<Digit> CurrentDigits { get; private set; }
 
-        public Trafficlight(IDigitReader digitReader)
+        public TrafficLight(IDigitReader digitReader)
         {
             _digitReader = digitReader;
             _digitHelper = new DigitHelper();

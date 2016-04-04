@@ -7,18 +7,18 @@ namespace TrafficLight.Domain.Core
 {
     public class TrafficLightAnalyzer
     {
-        private readonly Trafficlight _trafficlight;
+        private readonly TrafficLight _trafficLight;
         private readonly DigitEngine _digitEngine;
         private readonly List<INumberFilter> _numberFilters;
 
-        public TrafficLightAnalyzer(Trafficlight trafficlight, List<INumberFilter> numberFilters)
+        public TrafficLightAnalyzer(TrafficLight trafficLight, List<INumberFilter> numberFilters)
         {
-            if (trafficlight == null)
+            if (trafficLight == null)
             {
-                throw new ArgumentNullException("trafficlight");
+                throw new ArgumentNullException("trafficLight");
             }
 
-            _trafficlight = trafficlight;
+            _trafficLight = trafficLight;
             _digitEngine = new DigitEngine();
             _numberFilters = numberFilters;
         }
@@ -30,9 +30,9 @@ namespace TrafficLight.Domain.Core
            
             var count = 0;
 
-            while (_trafficlight.GetNext())
+            while (_trafficLight.GetNext())
             {
-                var digits = _trafficlight.CurrentDigits;
+                var digits = _trafficLight.CurrentDigits;
                 
                 numbers.Add(digits);
                 UpdateFilters(numbers);
@@ -45,12 +45,12 @@ namespace TrafficLight.Domain.Core
 
                 if (answers.Count == 1)
                 {
-                    _trafficlight.Answer(answers[0] - count + 1);
+                    _trafficLight.Answer(answers[0] - count + 1);
                     return answers[0] - count + 1;
                 }
             }
 
-            _trafficlight.Answer(0);
+            _trafficLight.Answer(0);
             return 0;
         }
 

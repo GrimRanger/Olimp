@@ -57,6 +57,82 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Contestants\Alexander_Belov\Belov Alexander.csproj">
+      <Project>{17f600b1-a823-49d6-8fc1-249afe7b0e18}</Project>
+      <Name>Belov Alexander</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Andrey_Fedorov\Fedorov Andrey.csproj">
+      <Project>{6044a8fa-d139-455a-b969-bde7237b6d67}</Project>
+      <Name>Fedorov Andrey</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Anna Galaida\Galaida Anna.csproj">
+      <Project>{4198e5df-b456-49ff-acc3-b0df46a793d7}</Project>
+      <Name>Galaida Anna</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Anna Sharkunova\Sharkunova Anna.csproj">
+      <Project>{212f51aa-275e-47b7-8a09-13ddb8673419}</Project>
+      <Name>Sharkunova Anna</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Banokin_KB21\Banokin KB21.csproj">
+      <Project>{31ab0e1a-d20c-4fe9-a705-548fcef845cd}</Project>
+      <Name>Banokin KB21</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Ilyashenko KB21\Ilyashenko KB21.csproj">
+      <Project>{9bf566c4-b2e9-4ccf-ab94-01c9f3658448}</Project>
+      <Name>Ilyashenko KB21</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Peter Ionov\Ionov Peter.csproj">
+      <Project>{f0e4aca1-0370-41db-b6c6-20fb9b3b3a9c}</Project>
+      <Name>Ionov Peter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Sergey Alexeev\Alexeev Sergey.csproj">
+      <Project>{648e3309-2379-457b-8bed-37eb6e8fb3b4}</Project>
+      <Name>Alexeev Sergey</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Sudarkin\Sudarkin.csproj">
+      <Project>{b6d76556-2710-40bf-9443-97cf0d8b1bca}</Project>
+      <Name>Sudarkin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\TrafficlightProblem_Volyakov[1]\Volyakov\Volyakov\Volyakov.csproj">
+      <Project>{157cb0e9-54bb-412e-824c-6a34c363f134}</Project>
+      <Name>Volyakov</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Vasily Golubtsov\Golubtsov Vasily.csproj">
+      <Project>{4edf6568-ae1a-44f2-9e08-d0397ff13447}</Project>
+      <Name>Golubtsov Vasily</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Zhuchenko-Kristina\Confirmit\Confirmit\Zhuchenko Kristina.csproj">
+      <Project>{925fad15-0d1f-43b1-b8b0-05e41665ad03}</Project>
+      <Name>Zhuchenko Kristina</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Александр Миронычев\Mironychev-Trafficlight\TrafficlightConsole\Mironych Alexander.csproj">
+      <Project>{9d5fc00a-274f-4438-842d-bafe38ee4d07}</Project>
+      <Name>Mironych Alexander</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Алексей Никитин\Nikitin Alexei.csproj">
+      <Project>{94cf6962-75cf-446b-8769-04e97b348695}</Project>
+      <Name>Nikitin Alexei</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Артем Кузнецов\TrafficlightApp\TrafficlightApp\Kuznetsov Artem.csproj">
+      <Project>{8f2de161-0ad9-4738-83d9-a628ed548836}</Project>
+      <Name>Kuznetsov Artem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Ирина Королева TrafficLights\TrafficLights\TrafficLights\Koroleva Irina.csproj">
+      <Project>{a9956bac-b5e5-4119-9850-6a3289f4a93d}</Project>
+      <Name>Koroleva Irina</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Карачев Дмитрий\KarachevProject\KarachevProject\Karachev.csproj">
+      <Project>{c7c686ca-e007-44bb-aa9e-48eff03da4d2}</Project>
+      <Name>Karachev</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Козлова Анна\TrafficLightLibrary\TrafficLightLibrary\Kozlova Anna.csproj">
+      <Project>{8414e72a-59f7-4169-8e89-4814d735b62a}</Project>
+      <Name>Kozlova Anna</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Мокеев Андрей\ConfirmitTestApp\TrafficLightTask\Makeyev Andrei.csproj">
+      <Project>{7f7e8c58-76ec-43a7-9986-f4545c6ae524}</Project>
+      <Name>Makeyev Andrei</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrafficLightLibrary\TrafficLightLibrary.csproj">
       <Project>{CBD50D70-BBF4-4122-83F3-49FCEFC2F7EC}</Project>
       <Name>TrafficLightLibrary</Name>

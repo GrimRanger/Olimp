@@ -2,7 +2,7 @@
 
 namespace TrafficLight.Domain.Core.Interfaces
 {
-    public interface ITrafficlight
+    public interface ITrafficLight
     {
         bool GetNext();
         Tuple<bool[], bool[]> Current { get; }

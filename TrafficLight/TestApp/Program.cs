@@ -43,7 +43,7 @@ namespace TestApp
 
         static void AnalyzeDigit(IDigitReader digitReader)
         {
-            var trafficLightService = new Trafficlight(digitReader);
+            var trafficLightService = new TrafficLight.Domain.Core.TrafficLight(digitReader);
             var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter() };
             var digitAnalyzer = new TrafficLightAnalyzer(trafficLightService, filters);
             var result = digitAnalyzer.Analyze();
@@ -56,7 +56,7 @@ namespace TestApp
         static void Main(string[] args)
         {
             //var digitReader = ReadDigits("test.txt");
-            var digitReader = GenerateDigits(55, new[] { "1010111", "1001001" });
+            var digitReader = GenerateDigits(3, null);//, new[] { "1010111", "1001001" });
             AnalyzeDigit(digitReader);
         }
     }
