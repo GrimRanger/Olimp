@@ -96,7 +96,7 @@ namespace Andrey_Fedorov
                 }
             }
 
-            trafficLight.Answer(result);
+            trafficLight.Answer(result - step);
         }
 
     }

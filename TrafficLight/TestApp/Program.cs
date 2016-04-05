@@ -55,6 +55,8 @@ namespace TestApp
 
         static void Main(string[] args)
         {
+            var digitGenerator = new DigitsGenerator();
+            var temp = digitGenerator.GenerateDigits(10, 2);
             //var digitReader = ReadDigits("test.txt");
             var digitReader = GenerateDigits(3, null);//, new[] { "1010111", "1001001" });
             AnalyzeDigit(digitReader);

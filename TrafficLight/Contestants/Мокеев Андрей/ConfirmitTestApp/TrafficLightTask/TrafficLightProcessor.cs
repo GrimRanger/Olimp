@@ -58,11 +58,12 @@ namespace Andrei_Makeyev
 
 				if (firstFound && secondFound)
 				{
-					break;
+                    trafficLight.Answer(firstGuess * 10 + secondGuess);
+					return;
 				}
 			}
 
-			trafficLight.Answer(firstGuess*10 + secondGuess);
+			trafficLight.Answer(0);
 		}
 
 		private static int GetPossibleForFirstDigit(TrafficLightDigit digit,

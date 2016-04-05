@@ -8,11 +8,11 @@ namespace Artem_Kuznetsov
     public class TrafficLightProblem
     {
         private const int DigitsCount = 10;
-        private readonly ITrafficLight _trafficlight;
+        private ITrafficLight _trafficlight;
         private readonly List<int[]> _iterations = new List<int[]>();
-        private readonly List<int> _possibleAnswers = new List<int>(); 
+        private readonly List<int> _possibleAnswers = new List<int>();
 
-        public TrafficLightProblem(ITrafficLight trafficlight)
+        public void Init(ITrafficLight trafficlight)
         {
             if (trafficlight == null)
                 throw new ArgumentException("Trafficlight is not initialized", "trafficlight");
@@ -20,8 +20,9 @@ namespace Artem_Kuznetsov
             _trafficlight = trafficlight;
         }
 
-        public void Solve()
+        public void Solve(ITrafficLight trafficlight)
         {
+            Init(trafficlight);
             while (_trafficlight.GetNext())
             {
                 var leftDigits = GetPossibleDigits(_trafficlight.Current.Item1);
@@ -112,7 +113,7 @@ namespace Artem_Kuznetsov
                     _possibleAnswers.Add(answer - 1);
             }
 
-            return _possibleAnswers.Count == 1 ? (int?) _possibleAnswers.First() : null;
+            return _possibleAnswers.Count == 1 ? (int?)_possibleAnswers.First() : null;
         }
     }
 }

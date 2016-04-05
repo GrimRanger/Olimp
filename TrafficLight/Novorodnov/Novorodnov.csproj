@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CBD50D70-BBF4-4122-83F3-49FCEFC2F7EC}</ProjectGuid>
+    <ProjectGuid>{3A8B40CD-4E47-42FB-8BB2-74132E33EE99}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrafficLight.Domain.Core</RootNamespace>
-    <AssemblyName>TrafficLight.Domain.Core</AssemblyName>
+    <RootNamespace>Novorodnov</RootNamespace>
+    <AssemblyName>Novorodnov</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,29 +32,21 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Digit.cs" />
-    <Compile Include="Core\DigitEngine.cs" />
-    <Compile Include="DigitGenerator\DigitsGenerator.cs" />
-    <Compile Include="DigitGenerator\NoiseGenerator.cs" />
-    <Compile Include="DigitReaders\DigitStorageReader.cs" />
-    <Compile Include="DigitReaders\MaskReader\BinaryMaskReader.cs" />
-    <Compile Include="DigitReaders\MaskReader\IntegerMaskReader.cs" />
-    <Compile Include="DigitReaders\StreamDigitReader.cs" />
-    <Compile Include="Filters\MaskDigitFilter.cs" />
-    <Compile Include="Filters\MaskChangeDigitFilter.cs" />
-    <Compile Include="Helpers\DigitHelper.cs" />
-    <Compile Include="Interfaces\IDigitReader.cs" />
-    <Compile Include="Interfaces\IMaskReader.cs" />
-    <Compile Include="Interfaces\INumberFilter.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interfaces\ITrafficLight.cs" />
-    <Compile Include="Filters\SequenceDigitFilter.cs" />
-    <Compile Include="Helpers\TrafficLightPainter.cs" />
-    <Compile Include="TrafficLightAnalyzerResult.cs" />
-    <Compile Include="TrafficLight.cs" />
-    <Compile Include="TrafficLightAnalyzer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrafficLightLibrary\TrafficLightLibrary.csproj">
+      <Project>{cbd50d70-bbf4-4122-83f3-49fcefc2f7ec}</Project>
+      <Name>TrafficLightLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

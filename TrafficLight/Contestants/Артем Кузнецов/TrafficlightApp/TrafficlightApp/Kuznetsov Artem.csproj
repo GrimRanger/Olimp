@@ -47,12 +47,6 @@
     <Compile Include="Logger.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\TrafficLightLibrary\TrafficLightLibrary.csproj">
       <Project>{cbd50d70-bbf4-4122-83f3-49fcefc2f7ec}</Project>
       <Name>TrafficLightLibrary</Name>

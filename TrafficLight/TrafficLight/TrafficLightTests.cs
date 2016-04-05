@@ -70,7 +70,7 @@ namespace TrafficLight
         {
             var digitReader = GenerateDigits(number, digitCount, noises);
             var trafficLightService = new Domain.Core.TrafficLight(digitReader);
-            var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter() };
+            var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter(), new MaskChangeDigitFilter() };
             var digitAnalyzer = new TrafficLightAnalyzer(filters);
 
             digitAnalyzer.Analyze(trafficLightService);
@@ -100,12 +100,14 @@ namespace TrafficLight
         [TestCase(88, 2, new[] { "0010000", "1001001" }, TestName = "SimpleTestOne 11")]
         [TestCase(88, 2, new[] { "1001100", "0110011" }, TestName = "SimpleTestOne 12")]
         [TestCase(99, 2, new[] { "0111100", "1001001" }, TestName = "SimpleTestOne 13")]
+        [TestCase(25, 2, new[] { "0111111", "0000000" }, TestName = "ExpectedResult 10")]
+        [TestCase(19, 2, new[] { "0111111", "0000000" }, TestName = "ExpectedResult 10")]
         public void TrafficLightAnalyzer_Analyze_SimpleTestOneContestants(int number, int digitCount, string[] noises)
         {
-            var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter() };
+            var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter(), new MaskChangeDigitFilter() };
             var digitAnalyzer = new TrafficLightAnalyzer(filters);
 
-            var actualResult = TrafficLightAnalyzer_Test(Алексей_Никитин.Alexei_Nikitin.Slove, number, noises);
+            var actualResult = TrafficLightAnalyzer_Test(Andrei_Makeyev.TrafficLightProcessor.GetCurrentState, number, noises);
 
             Assert.AreEqual(actualResult.RightAnswer, actualResult.UserAnswer);
         }
@@ -121,6 +123,8 @@ namespace TrafficLight
         [TestCase(15, 2, new[] { "1110000", "0000111" }, TestName = "ExpectedResult 8")]
         [TestCase(25, 2, new[] { "1010111", "1001001" }, TestName = "ExpectedResult 9")]
         [TestCase(25, 2, new[] { "0111110", "1000001" }, TestName = "ExpectedResult 10")]
+        [TestCase(25, 2, new[] { "0111111", "0000000" }, TestName = "ExpectedResult 10")]
+
         [TestCase(88, 2, new[] { "0010000", "1001001" }, TestName = "ExpectedResult 11")]
         [TestCase(88, 2, new[] { "1001100", "0110011" }, TestName = "ExpectedResult 12")]
         [TestCase(99, 2, new[] { "0111100", "1001001" }, TestName = "ExpectedResult 13")]
@@ -129,9 +133,14 @@ namespace TrafficLight
             var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter() };
             var digitAnalyzer = new TrafficLightAnalyzer(filters);
 
-            var actualResult = TrafficLightAnalyzer_Test(KarachevProject.Dmitry_Kalachev.Method, number, noises);
+            var actualResult = TrafficLightAnalyzer_Test(Volyakov.Volyakov.TrafficlightProblem, number, noises);
             var expectedResult = TrafficLightAnalyzer_Test(digitAnalyzer.Analyze, number, noises);
 
+            TestContext.WriteLine(string.Format("expected result : {0}", expectedResult.RightAnswer));
+            TestContext.WriteLine(string.Format("tester result : {0}", expectedResult.UserAnswer));
+            TestContext.WriteLine(string.Format("actual result : {0}", actualResult.UserAnswer));
+            TestContext.WriteLine(string.Format("expected steps : {0}", expectedResult.Steps));
+            TestContext.WriteLine(string.Format("actual steps : {0}", actualResult.Steps));
             Assert.AreEqual(expectedResult.RightAnswer, expectedResult.UserAnswer);
             Assert.AreEqual(expectedResult.UserAnswer, actualResult.UserAnswer);
             Assert.AreEqual(expectedResult.Steps, actualResult.Steps);
