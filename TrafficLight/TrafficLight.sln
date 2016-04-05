@@ -25,8 +25,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mironych Alexander", "Conte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nikitin Alexei", "Contestants\Алексей Никитин\Nikitin Alexei.csproj", "{94CF6962-75CF-446B-8769-04E97B348695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kuznetsov Artem", "Contestants\Артем Кузнецов\TrafficlightApp\TrafficlightApp\Kuznetsov Artem.csproj", "{8F2DE161-0AD9-4738-83D9-A628ED548836}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koroleva Irina", "Contestants\Ирина Королева TrafficLights\TrafficLights\TrafficLights\Koroleva Irina.csproj", "{A9956BAC-B5E5-4119-9850-6A3289F4A93D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karachev", "Contestants\Карачев Дмитрий\KarachevProject\KarachevProject\Karachev.csproj", "{C7C686CA-E007-44BB-AA9E-48EFF03DA4D2}"
@@ -54,6 +52,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudarkin", "Contestants\Sudarkin\Sudarkin.csproj", "{B6D76556-2710-40BF-9443-97CF0D8B1BCA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Golubtsov Vasily", "Contestants\Vasily Golubtsov\Golubtsov Vasily.csproj", "{4EDF6568-AE1A-44F2-9E08-D0397FF13447}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kuznetsov Artem", "Contestants\Artem Kuznetsov\TrafficlightApp\Kuznetsov Artem.csproj", "{8F2DE161-0AD9-4738-83D9-A628ED548836}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,16 +145,6 @@ Global
 		{94CF6962-75CF-446B-8769-04E97B348695}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{94CF6962-75CF-446B-8769-04E97B348695}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{94CF6962-75CF-446B-8769-04E97B348695}.Release|x86.ActiveCfg = Release|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|x86.ActiveCfg = Release|Any CPU
 		{A9956BAC-B5E5-4119-9850-6A3289F4A93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A9956BAC-B5E5-4119-9850-6A3289F4A93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9956BAC-B5E5-4119-9850-6A3289F4A93D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -295,6 +285,16 @@ Global
 		{4EDF6568-AE1A-44F2-9E08-D0397FF13447}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4EDF6568-AE1A-44F2-9E08-D0397FF13447}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4EDF6568-AE1A-44F2-9E08-D0397FF13447}.Release|x86.ActiveCfg = Release|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8F2DE161-0AD9-4738-83D9-A628ED548836}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -308,7 +308,6 @@ Global
 		{B513D5B9-7D33-4AEB-9B61-CA8A82269D1A} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
 		{9D5FC00A-274F-4438-842D-BAFE38EE4D07} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
 		{94CF6962-75CF-446B-8769-04E97B348695} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
-		{8F2DE161-0AD9-4738-83D9-A628ED548836} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
 		{A9956BAC-B5E5-4119-9850-6A3289F4A93D} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
 		{C7C686CA-E007-44BB-AA9E-48EFF03DA4D2} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
 		{8414E72A-59F7-4169-8E89-4814D735B62A} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
@@ -323,5 +322,6 @@ Global
 		{648E3309-2379-457B-8BED-37EB6E8FB3B4} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
 		{B6D76556-2710-40BF-9443-97CF0D8B1BCA} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
 		{4EDF6568-AE1A-44F2-9E08-D0397FF13447} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
+		{8F2DE161-0AD9-4738-83D9-A628ED548836} = {297344E7-3BB6-455C-9793-8BC99B8BE670}
 	EndGlobalSection
 EndGlobal

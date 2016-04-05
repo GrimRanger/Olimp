@@ -50,6 +50,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="ActionContainer.cs" />
+    <Compile Include="ContestantsTest.cs" />
     <Compile Include="TrafficLightTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +74,10 @@
     <ProjectReference Include="..\Contestants\Anna Sharkunova\Sharkunova Anna.csproj">
       <Project>{212f51aa-275e-47b7-8a09-13ddb8673419}</Project>
       <Name>Sharkunova Anna</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contestants\Artem Kuznetsov\TrafficlightApp\Kuznetsov Artem.csproj">
+      <Project>{8f2de161-0ad9-4738-83d9-a628ed548836}</Project>
+      <Name>Kuznetsov Artem</Name>
     </ProjectReference>
     <ProjectReference Include="..\Contestants\Banokin_KB21\Banokin KB21.csproj">
       <Project>{31ab0e1a-d20c-4fe9-a705-548fcef845cd}</Project>
@@ -112,10 +118,6 @@
     <ProjectReference Include="..\Contestants\Алексей Никитин\Nikitin Alexei.csproj">
       <Project>{94cf6962-75cf-446b-8769-04e97b348695}</Project>
       <Name>Nikitin Alexei</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Contestants\Артем Кузнецов\TrafficlightApp\TrafficlightApp\Kuznetsov Artem.csproj">
-      <Project>{8f2de161-0ad9-4738-83d9-a628ed548836}</Project>
-      <Name>Kuznetsov Artem</Name>
     </ProjectReference>
     <ProjectReference Include="..\Contestants\Ирина Королева TrafficLights\TrafficLights\TrafficLights\Koroleva Irina.csproj">
       <Project>{a9956bac-b5e5-4119-9850-6a3289f4a93d}</Project>

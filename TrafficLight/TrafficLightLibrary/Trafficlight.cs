@@ -10,9 +10,10 @@ namespace TrafficLight.Domain.Core
     {
         private readonly IDigitReader _digitReader;
         private readonly DigitHelper _digitHelper;
-        private int _answer;
 
-        public bool IsCorrectResult { get; private set; }
+        private int UserAnswer { get;  set; }
+        private int RightAnswer { get {return  _digitReader.GetRightAnswer(); } }
+        private int Steps { get { return _digitReader.GetStep(); } }
         public Tuple<bool[], bool[]> Current { get; private set; }
         public List<Digit> CurrentDigits { get; private set; }
 
@@ -24,8 +25,7 @@ namespace TrafficLight.Domain.Core
 
         public void Answer(int value)
         {
-            _answer = value;
-            IsCorrectResult = _answer == _digitReader.GetRightAnswer();
+            UserAnswer = value;
         }
 
         public bool GetNext()
@@ -37,6 +37,11 @@ namespace TrafficLight.Domain.Core
 
             Current = _digitHelper.ToBool(digits);
             return true;
+        }
+
+        public TrafficLightResult GetResult()
+        {
+            return new TrafficLightResult(UserAnswer, RightAnswer, Steps);
         }
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\ITrafficLight.cs" />
     <Compile Include="Filters\SequenceDigitFilter.cs" />
     <Compile Include="Helpers\TrafficLightPainter.cs" />
+    <Compile Include="TrafficLightAnalyzerResult.cs" />
     <Compile Include="TrafficLight.cs" />
     <Compile Include="TrafficLightAnalyzer.cs" />
   </ItemGroup>

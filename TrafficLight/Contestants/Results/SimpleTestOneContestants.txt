@@ -1,0 +1,21 @@
+TrafficLightAnalyzer_Analyze_SimpleTestOneContestants
+
+new Anna_Sharkunova.Anna_Sharkunova().SolveTrafficLightProblem - ошибка из удаления элемента в перечисляемом множестве
+new Andrey_Fedorov.Andrey_Fedorov().SolveTrafficLightProblem +- возращает начальное число, а не текущее
+Sergey_Alexeev.Sergey_Alexeev.SolveTrafficLightProblem +
+Peter_Ionov.Peter_Ionov.SolveTrafficLightProblem + 
+Andrei_Makeyev.TrafficLightProcessor.GetCurrentState +- неверно возвращает 0 значение
+new Anna_Kozlova.Problem().SolveTrafficLightProblem +
+KarachevProject.Dmitry_Kalachev.Method +
+Irina_Koroleva.Irina_Koroleva.SolveTrafficLightProblem +
+new Vasily_Golubtsov.StateDetector().SolveTrafficLightProblem +- (в одном тесте отрицательное значение)
+new Alexander_Belov.TrafficLightProblemSolver().SolveTrafficLightProblem +
+new Artem_Kuznetsov.TrafficLightProblem().Solve +
+Traffic2.Anna_Galaida.SolveTrafficLightProblem - (сомнительные 3-х значные числа)
+Banokin_KB21_SolveTrafficLightProblem.Banokin_KB21.SolveTrafficLightProblem +- (5 неверных ответов)
+IlyashenkoKB21.IlyashenkoKB21.SolveTrafficLightProblem +- (5 неверных ответов)
+new Trafficlight_Sudarkin.Trafficlight_Sudarkin().SolveTrafficLightProblem +- (1 неверный ответ)
+Volyakov.Volyakov.TrafficlightProblem +
+Zhuchenko_Kristina.Zhuchenko_Kristina.SolveTrafficLightProblem +
+Alexander_Mironych.StatusDeterminer.Determine +
+Алексей_Никитин.Alexei_Nikitin.Slove - (ошибки, отрицательные значения и неправильные результаты)
