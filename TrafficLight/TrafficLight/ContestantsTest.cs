@@ -81,7 +81,7 @@ namespace TrafficLight
         }
 
         [TestCaseSource("TestData")]
-        public void TrafficLightAnalyzer_Analyze_TestAllContestants(ActionContainer<ITrafficLight> solveTrafficProblem, int number, string[] noises)
+        public void TrafficLightAnalyzer_Analyze_TestAllContestantsWithExpected(ActionContainer<ITrafficLight> solveTrafficProblem, int number, string[] noises)
         {
             var filters = new List<INumberFilter> { new SequenceDigitFilter(), new MaskDigitFilter() };
             var digitAnalyzer = new TrafficLightAnalyzer(filters);
@@ -96,6 +96,18 @@ namespace TrafficLight
             TestContext.WriteLine(string.Format("actual steps : {0}", actualResult.Steps));
             Assert.AreEqual(expectedResult.RightAnswer, actualResult.UserAnswer);
             Assert.AreEqual(expectedResult.Steps, actualResult.Steps);
+        }
+
+
+        [TestCaseSource("TestData")]
+        public void TrafficLightAnalyzer_Analyze_TestAllContestantsWithoutExpected(ActionContainer<ITrafficLight> solveTrafficProblem, int number, string[] noises)
+        {
+            var actualResult = TrafficLightAnalyzer_Test(solveTrafficProblem.Action, number, noises);
+            TestContext.WriteLine(string.Format("Name : {0}", solveTrafficProblem.GetName));
+            TestContext.WriteLine(string.Format("expected result : {0}", actualResult.RightAnswer));
+            TestContext.WriteLine(string.Format("actual result : {0}", actualResult.UserAnswer));
+            TestContext.WriteLine(string.Format("actual steps : {0}", actualResult.Steps));
+            Assert.AreEqual(actualResult.RightAnswer, actualResult.UserAnswer);
         }
     }
 }
